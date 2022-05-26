@@ -1,4 +1,5 @@
 from OpenGL.GL import *
+import glm
 
 def create_shader(target, source_path):
     source_file = open(source_path, "rb")
@@ -28,6 +29,9 @@ class Shader:
         # delete shader
         glDeleteShader(vert_shader)
         glDeleteShader(frag_shader)
+        
+    def setMat4(self, name: str, mat: glm.mat4):
+        glUniformMatrix4fv(glGetUniformLocation(self.program, name), 1, GL_FALSE, glm.value_ptr(mat))
 
     def use(self):
         glUseProgram(self.program)
