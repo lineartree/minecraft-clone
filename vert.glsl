@@ -6,5 +6,5 @@ out vec3 local_position;
 
 void main(void) {
   local_position = vertex_positions;
-  gl_Position = vec4(vertex_positions, 1.0)
+  gl_Position = vec4(vertex_positions, 1.0);
 }
